@@ -1,26 +1,25 @@
-<link rel="stylesheet" href="../assets/css/style.css">
-<div id="chat">
-
-
 <?php
-
 include('errors.php');
 include('pdo.php');
 
+$connection = new Connection();
 
-  $req = $conn->query('SELECT * FROM message INNER JOIN user ON message.user_id = user.id ');
+$cnn = $connection->getConnection();
+$sql = "SELECT * FROM message";
+// INNER JOIN user ON message.user_id = user.id ";
+$statement = $cnn->prepare( $sql );
+$value = $statement->execute();
 
-  $sql_data= $req->fetchAll(PDO::FETCH_ASSOC);
-  $length = count($sql_data);
-  for ($i=0; $i < $length; $i++) {
-    echo '<p class="text">';
-    echo '@'.$sql_data[$i]['pseudo'].' dit : '.$sql_data[$i]['content'];
-    echo '</p>';
-    // echo '<p id="lastReceived"> Dernier message : ';
-    // echo '< class="time">'.$sql_data[$length-1]['date'].'</><br>';
-    // echo '< class="pseudo">@'.$sql_data[$i]['pseudo'].'</> dit : '.$sql_data[$length-1]['content'];
-    // echo '</p>';
+if ( $value ) {
+  while ($result = $statement->fetch(PDO::FETCH_ASSOC)){
+    $data["data"][] = $result;
   }
+  echo json_encode( $data );
+} else {
+  echo "erreur";
+}
+$statement->closeCursor();
+$connection = null;
+
 
 ?>
-</div>

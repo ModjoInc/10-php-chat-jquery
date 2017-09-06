@@ -1,15 +1,27 @@
 <?php
+include('errors.php');
 
-$servername = "localhost";
-$username = "root";
-$password = "mvdtvw28";
+class Connection{
+  private $host = "localhost";
+  private $dbname = "mini_chat";
+  private $user = "root";
+  private $password = "mvdtvw28";
+  private $connection = null;
 
-try {
-   $conn = new PDO('mysql:host='.$servername.';dbname=mini_chat;charset=utf8', $username, $password);
-   // set the PDO error mode to exception
-   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connection à la BD OK";
-   } catch (PDOException $e) {
-   echo "Connection failed: " . $e->getMessage();
-   }
+  public function getConnection() {
+    try{
+      $this->connection = new PDO(
+        "mysql:host=$this->host; dbname=$this->dbname",
+        $this->user,
+        $this->password
+      );
+      return $this->connection;
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }finally{
+      $this->connection = null;
+    }
+  }
+}
+
 ?>

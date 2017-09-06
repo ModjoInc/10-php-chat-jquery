@@ -7,28 +7,43 @@
 body {
   background-color: #f2f2f2; }
 
-#wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 4fr;
-  grid-template-areas: ". login conversation"; }
-  #wrapper #conversation {
-    grid-area: conversation;
-    justify-self: start;
-    box-shadow: 0px 1px 2px #888888;
-    margin: 10px 5px;
-    padding: 10px 20px; }
-  #wrapper #login {
-    grid-area: login;
-    justify-self: end;
-    box-shadow: 0px 1px 2px #888888;
-    margin: 10px 5px;
-    padding: 10px 20px; }
-
 iframe {
   border: none; }
 
-#chat {
-  padding: 10px 0; }
+#mainWrapper {
+  display: grid; }
+  #mainWrapper #wrapperNoJs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr;
+    grid-template-areas: ". login conversation"; }
+    #mainWrapper #wrapperNoJs #conversation {
+      grid-area: conversation;
+      justify-self: start;
+      box-shadow: 0px 1px 2px #888888;
+      margin: 10px 5px;
+      padding: 10px 20px; }
+    #mainWrapper #wrapperNoJs #login {
+      grid-area: login;
+      justify-self: end;
+      box-shadow: 0px 1px 2px #888888;
+      margin: 10px 5px;
+      padding: 10px 20px; }
+  #mainWrapper #wrapperJs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr;
+    grid-template-areas: ". loginJS chat"; }
+    #mainWrapper #wrapperJs #JSchat {
+      grid-area: chat;
+      justify-self: start;
+      box-shadow: 0px 1px 2px #888888;
+      margin: 10px 5px;
+      padding: 10px 20px; }
+    #mainWrapper #wrapperJs #JSlogin {
+      grid-area: loginJS;
+      justify-self: end;
+      box-shadow: 0px 1px 2px #888888;
+      margin: 10px 5px;
+      padding: 10px 20px; }
 
 .text {
   border: 1px solid #fff;
@@ -36,7 +51,8 @@ iframe {
   background-color: #fff;
   padding: 10px;
   margin: 20px 20px;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  background-color: #a8ba9a; }
 
 #box {
   padding-top: 5px;
