@@ -1,7 +1,7 @@
 # Projet 10: php-chat-jquery
 
 ## consignes
-méliore ton chat avec du JQUERY
+Améliore ton chat avec du JQUERY
 
 Reprend le chat que tu as développé sans pouvoir utiliser du javascript. A présent: tu peux!
 
@@ -14,3 +14,16 @@ Comme tu l'as développé en amélioration progressive, ajoute une couche de jav
 N'hésitez pas à vous mettre à plusieurs pour résoudre l'énigme du heartbeat/"long polling". Hint: une technique serait par exemple d'utiliser des identifiants uniques pour chaque message... Identifiant que vous pouvez utiliser dans la requête Ajax pour vérifier dans la base de données la présence de messages plus récents entre les personnes.
 
 Si tu as encore du temps, on pourrait imaginer que l'interface indique discrètement à l'utilisateur lorsqu'il est en train de vérifier l'existence de nouveaux messages, ou qu'on puisse envoyer une image dans la conversation, que l'on remplace les smileys par des emoji...
+
+
+## State of project
+- Ajax OK
+- Affichage des messages du chat en jquery+Ajax+JSON OK
+- poster messages dans DB avec JSON _en cours_
+- login _en cours_
+- UX _en cours_
+
+## Lien vers version déployée
+
+
+[lien vers la version finale](https://practicebulgarian.com/becode/)
